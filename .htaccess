@@ -1,0 +1,43 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+	
+ErrorDocument 404 http://localhost/laptopMVC/
+
+RewriteRule		home 									index.php?module=default&controller=index&action=index
+RewriteRule		tintuc		    						index.php?module=default&controller=news&action=index
+RewriteRule		detail/([A-Za-z0-9_-]+) 				index.php?module=default&controller=news&action=detail&url=$1
+RewriteRule		contact 								index.php?module=default&controller=contact&action=index
+
+RewriteRule		hang/([A-Za-z0-9_-]+) 					index.php?module=default&controller=index&action=cateDetail&url=$1
+RewriteRule		chitiet/([A-Za-z0-9_-]+)				index.php?module=default&controller=index&action=detail&url=$1
+
+RewriteRule		admin									index.php?module=admin&controller=index&action=login
+RewriteRule		logout									index.php?module=admin&controller=index&action=logout
+RewriteRule		category								index.php?module=admin&controller=category&action=index
+RewriteRule		products								index.php?module=admin&controller=products&action=index
+RewriteRule		dashboard								index.php?module=admin&controller=index&action=index
+
+RewriteRule		banner									index.php?module=admin&controller=banner&action=index
+RewriteRule		news									index.php?module=admin&controller=news&action=index
+
+RewriteRule		addCategory								index.php?module=admin&controller=category&action=add
+RewriteRule		editCategory/([0-9]+)					index.php?module=admin&controller=category&action=edit&id=$1
+RewriteRule		deleteCategory/([0-9]+)					index.php?module=admin&controller=category&action=delete&id=$1
+
+RewriteRule		addProduct								index.php?module=admin&controller=products&action=add
+RewriteRule		editProduct/([0-9]+)					index.php?module=admin&controller=products&action=edit&id=$1
+RewriteRule		deleteProduct/([0-9]+)					index.php?module=admin&controller=products&action=delete&id=$1
+
+RewriteRule		addBanner								index.php?module=admin&controller=banner&action=add
+RewriteRule		editBanner/([0-9]+)						index.php?module=admin&controller=banner&action=edit&id=$1
+RewriteRule		deleteBanner/([0-9]+)					index.php?module=admin&controller=banner&action=delete&id=$1
+
+RewriteRule		addNews									index.php?module=admin&controller=news&action=add
+RewriteRule		editNews/([0-9]+)						index.php?module=admin&controller=news&action=edit&id=$1
+RewriteRule		deleteNews/([0-9]+)						index.php?module=admin&controller=news&action=delete&id=$1
+
+
